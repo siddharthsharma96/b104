@@ -1,0 +1,34 @@
+.container {
+  height: 80vh;
+  border: 1px solid red;
+  width: 40vw;
+}
+
+.item {
+  color: red;
+  background-color: yellow;
+}
+.static {
+  position: static;
+}
+
+.sticky {
+  position: sticky;
+  top: 0px;
+}
+
+.relative {
+  /* position: relative; */
+}
+
+.absolute {
+  position: absolute;
+  right: -30px;
+  top: 40px;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+}

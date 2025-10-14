@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.gridContainer {
+  /* height: 90vh; */
+  /* border: 1px solid black; */
+  margin: 10px;
+  display: grid;
+  /* grid-template-columns: 200px 200px 200px 200px;
+  grid-template-columns: repeat(2, 200px) 300px;
+  grid-template-columns: 1fr 2fr 1fr 1fr; */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 200px 200px;
+  gap: 10px;
+  /* row-gap: 10px; */
+  /* column-gap: 10px; */
+  /* justify-content: center;
+    align-content: center; */
+  /* justify-items: center;
+    align-items: center; */
+}
+
+.item {
+  padding: 50px;
+  color: red;
+  background-color: yellow;
+  font-size: 28px;
+  font-weight: 700;
+  border: 1px solid red;
+}
+
+.item:nth-child(8) {
+  /* visibility: hidden; */
+  display: none;
+}
+
+/* 
+576px :less than 576px mobile devices
+768px: 576-768 tabs
+992px: 786px-992px small screen
+1200px:larger than 1200 extra large screen 992px-1200px normal screens
+
+*/
+
+/* mobile devices */
+@media (max-width: 576px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 150px;
+  }
+  .item {
+    background-color: green;
+    color: yellow;
+    font-size: 38px;
+  }
+  .item:nth-child(8) {
+    /* visibility: hidden; */
+    display: block;
+  }
+}
+/* tabs */
+@media (min-width: 576px) and (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 150px;
+    margin: 40px;
+  }
+  .item {
+    background-color: blue;
+    color: black;
+    font-size: 34px;
+  }
+}
+
+/* Small screen */
+@media (min-width: 768px) and (max-width: 992px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 150px;
+  }
+  .item {
+    background-color: orange;
+    color: orangered;
+    font-size: 32px;
+  }
+  .item:nth-child(8) {
+    /* visibility: hidden; */
+    display: block;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+  .gridContainer {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 150px;
+    margin: 10px 20%;
+  }
+  .item {
+    background-color: purple;
+    color: white;
+    font-size: 36px;
+  }
+  .item:nth-child(8) {
+    display: inline;
+  }
+}

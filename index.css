@@ -1,0 +1,77 @@
+/* 1.Universal Selector */
+* {
+  /* border: 1px solid red; */
+  /* color: red; */
+}
+
+/* 2. Tag selector */
+h1 {
+  /* background-color: aquamarine; */
+}
+
+/*3. Id Selector # */
+
+#a {
+  background-color: green;
+}
+
+/* 4. Class Selector . */
+
+.b {
+  color: red;
+  font-size: 32px;
+}
+
+/* 5. group Selector , */
+
+h3,
+h4 {
+  color: green;
+}
+
+/* 6. Descendeant selector */
+div p {
+  color: red;
+}
+
+/* 7. Child Selector > */
+div > p {
+  color: blue;
+}
+
+/* 8.Attribute Selector */
+button[type="reset"] {
+  color: yellowgreen;
+}
+
+/* 9.pseudo Classes : */
+li:nth-child(2) {
+  color: red;
+  font-size: 20px;
+}
+
+li:hover {
+  color: blue;
+  font-size: 40px;
+}
+
+/* 10. Pseudo Elements ::*/
+
+#d::after {
+  content: "Added by CSS";
+}
+#d::first-line {
+  font-size: 40px;
+  color: red;
+}
+
+#padmar {
+  border: 5px solid black;
+  /* padding: 30px; */
+  /* top right bottom left */
+  /* padding: 30px 50px 80px 120px; */
+  padding: 40px 100px;
+  margin: 30px;
+  margin: 10px 20px 40px 120px;
+  margin: 20px 120px;
+}
