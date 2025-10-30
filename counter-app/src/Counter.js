@@ -1,15 +1,13 @@
-const Counter = ({ val, handleDecrement, handleIncrement }) => {
+import ButtonContainer from "./ButtonContainer";
+
+const Counter = ({ val, handleDecrement, handleIncrement, pref }) => {
   return (
     <div className="counterContainer">
-      <p>{val}</p>
-      <div className="btnContainer">
-        <button className="inc" onClick={handleIncrement}>
-          Increment
-        </button>
-        <button className="dec" onClick={handleDecrement}>
-          Decrement
-        </button>
-      </div>
+      <p ref={pref}>{val}</p>
+      <ButtonContainer
+        handleDecrement={handleDecrement}
+        handleIncrement={handleIncrement}
+      ></ButtonContainer>
     </div>
   );
 };
