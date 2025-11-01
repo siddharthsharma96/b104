@@ -1,0 +1,17 @@
+.header {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+}
+
+.active {
+  color: red;
+  font-size: 22px;
+}
