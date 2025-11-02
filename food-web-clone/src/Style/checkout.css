@@ -1,0 +1,57 @@
+.cartSection {
+    margin-bottom: 5rem; /* 5 times the size of the font */
+    /* Other CSS properties can be added as needed */
+}
+
+.container {
+    /* Define container styles */
+}
+
+.form {
+    width: 75%; /* 75% of the parent element's width */
+    margin-top: 4rem; /* 4 times the size of the font */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Box shadow properties */
+    /* Other CSS properties can be added as needed */
+}
+
+.form h3 {
+    /* Define styles for headings within the form */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* 1.5 times the size of the font */
+    /* Other CSS properties can be added as needed */
+}
+
+.w-100 {
+    width: 100%; /* Full width */
+}
+
+.card {
+    padding: 1rem; /* 1 times the size of the font */
+    /* Other CSS properties can be added as needed */
+}
+
+.card h5 {
+    margin-bottom: 0; /* No margin at the bottom */
+    /* Other CSS properties can be added as needed */
+}
+
+.card h3 {
+    margin-left: auto; /* Align to the right */
+    margin-bottom: 0; /* No margin at the bottom */
+    font-weight: bold; /* Bold font weight */
+    /* Other CSS properties can be added as needed */
+}
+
+.text-g {
+    /* Define styles for text with class 'text-g' */
+}
+
+.btn-g {
+    /* Define styles for buttons with class 'btn-g' */
+}
+
+.btn-lg {
+    /* Define styles for large buttons */
+}

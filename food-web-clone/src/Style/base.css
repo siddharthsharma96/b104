@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Source+Sans+3:wght@400;700&display=swap");
+body {
+  height: 100%;
+}
+
+:root {
+  --font-primary: "Nunito";
+  --font-secondary: "Source Sans 3";
+  --skill-green-100: yellow;
+}
