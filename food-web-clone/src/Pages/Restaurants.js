@@ -1,7 +1,41 @@
+import { useEffect, useState } from "react";
+import "./../Style/restaurant.css";
+import { useParams, useOutletContext } from "react-router-dom";
+import RestaurantMenu from "../Components/RestaurantMenu";
+
 const Restaurants = () => {
+  const { resId } = useParams();
+  const { restaurantsData } = useOutletContext();
+  const [restaurant, setRestaurant] = useState(null);
+  const [menu, setMenu] = useState([]);
+  console.log(restaurant);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const found = restaurantsData.find((res) => res?.info.id === resId);
+        setRestaurant(found);
+        const response = await fetch("http://localhost:3000/menu.json");
+        const data = await response.json();
+        setMenu(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [restaurantsData]);
   return (
-    <div>
-      <h1>Restaurants Page</h1>
+    <div className="restaurant">
+      <div className="restaurant__breadcrumb">
+        <span>Home/Noida/{restaurant?.info?.name}</span>
+      </div>
+      <div className="restaurant__container">
+        <div className="restaurant__menu">
+          {menu.map((item) => (
+            <RestaurantMenu menuData={item}></RestaurantMenu>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

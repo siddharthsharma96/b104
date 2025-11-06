@@ -33,7 +33,7 @@ let projectRoutes = createBrowserRouter([
         element: <Search></Search>,
       },
       {
-        path: "/restaurant/:id",
+        path: "/restaurant/:resId",
         element: <Restaurants></Restaurants>,
       },
       {
