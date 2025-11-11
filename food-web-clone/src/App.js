@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [restaurantsData, setRestaurantsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -24,13 +25,53 @@ function App() {
     fetchRestaurants();
   }, []);
 
+  const addItem = (item) => {
+    const existingIndex = cartItems.findIndex(
+      (cartItems) => cartItems.card.info.id === item.card.info.id
+    );
+    console.log(existingIndex);
+
+    if (existingIndex !== -1) {
+      const updatedCart = [...cartItems];
+      updatedCart[existingIndex].quantity += 1;
+      setCartItems(updatedCart);
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+    console.log(cartItems);
+  };
+
+  const removeItem = (item) => {
+    const existingIndex = cartItems.findIndex(
+      (cartItems) => cartItems.card.info.id === item.card.info.id
+    );
+    if (existingIndex !== -1) {
+      const updatedCart = [...cartItems];
+      if (updatedCart[existingIndex].quantity > 1) {
+        updatedCart[existingIndex].quantity -= 1;
+      } else {
+        updatedCart.splice(existingIndex, 1);
+      }
+      setCartItems(updatedCart);
+    }
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <div>
-      <Header></Header>
+      <Header cartItems={cartItems}></Header>
       <Outlet
         context={{
           restaurantsData,
           loading,
+          setCartItems,
+          addItem,
+          cartItems,
+          removeItem,
+          clearCart,
         }}
       ></Outlet>
     </div>

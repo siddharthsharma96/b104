@@ -8,7 +8,6 @@ const Restaurants = () => {
   const { restaurantsData } = useOutletContext();
   const [restaurant, setRestaurant] = useState(null);
   const [menu, setMenu] = useState([]);
-  console.log(restaurant);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Header = () => {
+const Header = ({ cartItems }) => {
   return (
     <div className="header">
       {/* BEM */}
@@ -24,7 +24,12 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/cart"}>Cart</NavLink>
+            <NavLink to={"/cart"}>
+              Cart{" "}
+              {cartItems.length >= 1 && (
+                <span className="cartItemCount">{cartItems.length}</span>
+              )}
+            </NavLink>
           </li>
         </ul>
       </div>
