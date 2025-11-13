@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./../Style/restaurant.css";
 import { useParams, useOutletContext } from "react-router-dom";
 import RestaurantMenu from "../Components/RestaurantMenu";
+import RestaurantInfo from "../Components/RestaurantInfo";
 
 const Restaurants = () => {
   const { resId } = useParams();
@@ -29,9 +30,10 @@ const Restaurants = () => {
         <span>Home/Noida/{restaurant?.info?.name}</span>
       </div>
       <div className="restaurant__container">
+        <RestaurantInfo restaurant={restaurant?.info} />
         <div className="restaurant__menu">
-          {menu.map((item) => (
-            <RestaurantMenu menuData={item}></RestaurantMenu>
+          {menu.map((item, i) => (
+            <RestaurantMenu menuData={item} key={i * 4} i={i}></RestaurantMenu>
           ))}
         </div>
       </div>

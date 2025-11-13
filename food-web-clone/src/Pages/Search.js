@@ -18,10 +18,10 @@ const Search = () => {
       setInputVal(queryParam);
     }
   }, [searchParams]);
-  console.log(filteredResults);
+  console.log("Filtered", filteredResults);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsInputEmpty(inputVal === "");
       navigate(`?query=${inputVal}`);
       if (inputVal.trim() !== "") {
@@ -32,12 +32,12 @@ const Search = () => {
       } else {
         setFilteredResults([]);
       }
-    }, 2000);
+    }, 1000);
+    return () => clearTimeout(timer);
   }, [inputVal, navigate]);
   const handleChange = (e) => {
     setInputVal(e.target.value);
   };
-  console.log(inputVal);
 
   return (
     <div className="search">
@@ -49,7 +49,8 @@ const Search = () => {
           onChange={handleChange}
         ></input>
       </div>
-      {!isInputEmpty && filteredResults ? (
+      {isInputEmpty && <h3 className="heading">Popular restaurants </h3>}
+      {!isInputEmpty && filteredResults.length === 0 ? (
         <div className="search__not-found">
           <p>This restaurant is not listed</p>
           <p>Please enter some Other Restaurant Name</p>
@@ -58,8 +59,15 @@ const Search = () => {
         <div className="searched">
           {filteredResults.map((res) => {
             return (
-              <div className="searchedData">
-                <img src={`/images/${res.info.cloudinaryImageId}`}></img>
+              <div
+                onClick={() => navigate(`/restaurant/${res.info.id}`)}
+                className="searchedData"
+                key={res.info.id}
+              >
+                <img
+                  src={`/images/${res.info.cloudinaryImageId}.avif`}
+                  alt="as"
+                ></img>
                 <div>
                   <p>{res.info.name}</p>
                 </div>
