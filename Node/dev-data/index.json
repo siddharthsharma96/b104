@@ -1,0 +1,68 @@
+[
+  {
+    "id": 0,
+    "productName": "Alphonso Mangoes",
+    "image": "🥭",
+    "from": "Ratnagiri, Maharashtra",
+    "nutrients": "Vitamin C, Vitamin A, Fiber",
+    "quantity": "1 Dozen",
+    "price": "600",
+    "organic": true,
+    "description": "Known as the 'King of Mangoes', Alphonso mangoes are prized for their rich, creamy, saffron-colored pulp and exquisite aroma. Grown in the Konkan region of Maharashtra, these mangoes are seasonal and available from April to June."
+  },
+  {
+    "id": 1,
+    "productName": "Basmati Rice",
+    "image": "🍚",
+    "from": "Dehradun, Uttarakhand",
+    "nutrients": "Carbohydrates, Protein, Fiber",
+    "quantity": "5 kg",
+    "price": "450",
+    "organic": false,
+    "description": "Premium long-grain Basmati rice known for its distinctive aroma and fluffy texture when cooked. Ideal for biryanis, pulao, and other Indian rice dishes. Aged for minimum 1 year for enhanced flavor."
+  },
+  {
+    "id": 2,
+    "productName": "Gir Kesar Mangoes",
+    "image": "🥭",
+    "from": "Gir, Gujarat",
+    "nutrients": "Vitamin C, Vitamin A, Antioxidants",
+    "quantity": "1 Dozen",
+    "price": "500",
+    "organic": true,
+    "description": "Gir Kesar mangoes are known for their bright orange pulp and sweet-tangy flavor. These mangoes are grown in the foothills of Gir forest and are rich in antioxidants and vitamins."
+  },
+  {
+    "id": 3,
+    "productName": "Amul Butter",
+    "image": "🧈",
+    "from": "Anand, Gujarat",
+    "nutrients": "Calcium, Vitamin A, Vitamin D",
+    "quantity": "500 g",
+    "price": "250",
+    "organic": false,
+    "description": "India's most trusted butter brand. Made from fresh milk, Amul butter is rich in taste and perfect for cooking, baking or spreading on bread. Contains no artificial colors or preservatives."
+  },
+  {
+    "id": 4,
+    "productName": "Darjeeling Tea",
+    "image": "🍵",
+    "from": "Darjeeling, West Bengal",
+    "nutrients": "Antioxidants, Caffeine, Theanine",
+    "quantity": "250 g",
+    "price": "350",
+    "organic": true,
+    "description": "First flush Darjeeling tea leaves, known as the 'Champagne of Teas'. Grown in the Himalayan foothills, this tea has a delicate aroma and light color with a distinctive muscatel flavor."
+  },
+  {
+    "id": 5,
+    "productName": "Shimla Apples",
+    "image": "🍎",
+    "from": "Shimla, Himachal Pradesh",
+    "nutrients": "Fiber, Vitamin C, Potassium",
+    "quantity": "1 kg",
+    "price": "120",
+    "organic": false,
+    "description": "Crisp and juicy apples grown in the orchards of Himachal Pradesh. These apples have a perfect balance of sweetness and tartness, making them ideal for both eating fresh and cooking."
+  }
+]

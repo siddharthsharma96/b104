@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Farm Fresh</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        color: #333;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        color: #2e7d32;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        color: #666;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-emoji {
+        font-size: 4rem;
+        text-align: center;
+        padding: 20px;
+        background-color: #e8f5e9;
+      }
+
+      .product-info {
+        padding: 20px;
+      }
+
+      .product-name {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #1b5e20;
+      }
+
+      .product-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+
+      .product-origin,
+      .product-price {
+        font-size: 0.9rem;
+      }
+
+      .product-price {
+        font-weight: bold;
+        color: #2e7d32;
+      }
+
+      .view-details-btn {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: #2e7d32;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .view-details-btn:hover {
+        background-color: #1b5e20;
+      }
+
+      .not-organic {
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🇮🇳 Indian Farm Fresh</h1>
+      <p>Direct from Indian farms to your home</p>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-emoji">🥭</div>
+        <div class="product-info">
+          <h3 class="product-name">Alphonso Mangoes</h3>
+          <div class="product-details">
+            <p class="product-origin">
+              <span>🌍</span> From Ratnagiri, Maharashtra
+            </p>
+            <p class="product-price"><span>₹</span> 600</p>
+          </div>
+          <a href="./product.html" class="view-details-btn">View Details →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-emoji">🍚</div>
+        <div class="product-info">
+          <h3 class="product-name">Basmati Rice</h3>
+          <div class="product-details">
+            <p class="product-origin not-organic">
+              <span>🌍</span> From Dehradun, Uttarakhand
+            </p>
+            <p class="product-price"><span>₹</span> 450</p>
+          </div>
+          <a href="./product.html" class="view-details-btn">View Details →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-emoji">🥭</div>
+        <div class="product-info">
+          <h3 class="product-name">Gir Kesar Mangoes</h3>
+          <div class="product-details">
+            <p class="product-origin"><span>🌍</span> From Gir, Gujarat</p>
+            <p class="product-price"><span>₹</span> 500</p>
+          </div>
+          <a href="./product.html" class="view-details-btn">View Details →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-emoji">🧈</div>
+        <div class="product-info">
+          <h3 class="product-name">Amul Butter</h3>
+          <div class="product-details">
+            <p class="product-origin not-organic">
+              <span>🌍</span> From Anand, Gujarat
+            </p>
+            <p class="product-price"><span>₹</span> 250</p>
+          </div>
+          <a href="./product.html" class="view-details-btn">View Details →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-emoji">🍵</div>
+        <div class="product-info">
+          <h3 class="product-name">Darjeeling Tea</h3>
+          <div class="product-details">
+            <p class="product-origin">
+              <span>🌍</span> From Darjeeling, West Bengal
+            </p>
+            <p class="product-price"><span>₹</span> 350</p>
+          </div>
+          <a href="./product.html" class="view-details-btn">View Details →</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-emoji">🍎</div>
+        <div class="product-info">
+          <h3 class="product-name">Shimla Apples</h3>
+          <div class="product-details">
+            <p class="product-origin not-organic">
+              <span>🌍</span> From Shimla, Himachal Pradesh
+            </p>
+            <p class="product-price"><span>₹</span> 120</p>
+          </div>
+          <a href="./product.html" class="view-details-btn">View Details →</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
