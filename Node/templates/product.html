@@ -120,43 +120,38 @@
   </head>
   <body>
     <div class="container">
-      <a href="/overview" class="back-link">← Back to all products</a>
+      <a href="./overview" class="back-link">← Back to all products</a>
 
       <div class="product-detail">
         <div class="product-header">
-          <div class="product-emoji">🥭</div>
-          <div class="organic-badge">Organic</div>
-          <h1 class="product-title">Alphonso Mangoes</h1>
-          <p>From Ratnagiri, Maharashtra</p>
+          <div class="product-emoji">{%IMAGE%}</div>
+          <div class="organic-badge {%NOT_ORGANIC%}">Organic</div>
+          <h1 class="product-title">{%PRODUCTNAME%}</h1>
+          <p>From {%FROM%}</p>
         </div>
 
         <div class="product-info">
           <div class="info-grid">
             <div class="info-item">
               <span>❤️</span>
-              <div>Vitamin C, Vitamin A, Fiber</div>
+              <div>{%NUTRIENTS%}</div>
             </div>
             <div class="info-item">
               <span>📦</span>
-              <div>1 Dozen</div>
+              <div>{%QUANTITY%}</div>
             </div>
             <div class="info-item">
               <span>₹</span>
-              <div>600</div>
+              <div>{%PRICE%}</div>
             </div>
           </div>
 
           <div class="product-description">
             <h3>About this product</h3>
-            <p>
-              Known as the 'King of Mangoes', Alphonso mangoes are prized for
-              their rich, creamy, saffron-colored pulp and exquisite aroma.
-              Grown in the Konkan region of Maharashtra, these mangoes are
-              seasonal and available from April to June.
-            </p>
+            <p>{%DESCRIPTION%}</p>
           </div>
 
-          <button class="add-to-cart">Add to Cart (₹600)</button>
+          <button class="add-to-cart">Add to Cart (₹{%PRICE%})</button>
         </div>
       </div>
     </div>
