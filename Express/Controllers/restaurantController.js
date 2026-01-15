@@ -1,81 +1,115 @@
-const fs = require("fs");
+const RestaurantModel = require("./../Models/RestaurantModel");
 
-let restaurantdata = JSON.parse(fs.readFileSync("./Restaurant.json", "utf-8"));
-
-exports.getAllRestaurantData = (req, res) => {
-  res.status(200).json({
-    status: true,
-    length: restaurantdata.length,
-    timeOfHit: req.requestTimeOfHit,
-    msg: req.myMessage,
-    data: {
-      restaurantdata,
-    },
-  });
-};
-
-exports.restaurantData = (req, res) => {
-  const id = req.params.id;
-  const restaurant = restaurantdata.find((el) => el.id === id);
-  if (!restaurant) {
-    res.status(404).json({
-      status: "fail",
+exports.getAllRestaurantData = async (req, res) => {
+  try {
+    const restaurantdata = await RestaurantModel.find();
+    res.status(200).json({
+      status: true,
+      length: restaurantdata.length,
       timeOfHit: req.requestTimeOfHit,
-      message: "Entered wrong resID",
+      msg: req.myMessage,
+      data: {
+        restaurantdata,
+      },
     });
-  }
-  res.status(200).json({
-    status: "success",
-    timeOfHit: req.requestTimeOfHit,
-    restaurant,
-  });
-};
-exports.createResaturant = (req, res) => {
-  const newId = restaurantdata[restaurantdata.length - 1].id + 1;
-  const newRestaurant = Object.assign({ id: newId }, req.body);
-  restaurantdata.push(newRestaurant);
-  fs.writeFile("./Restaurant.json", JSON.stringify(restaurantdata), (err) => {
+  } catch (err) {
     res.status(400).json({
       status: "fail",
       timeOfHit: req.requestTimeOfHit,
+      message: err.message,
     });
-  });
-  res.status(201).json({
-    status: true,
-    timeOfHit: req.requestTimeOfHit,
-    message: req.body,
-  });
+  }
 };
 
-exports.updateRestaurant = (req, res) => {
-  const id = req.params.id;
-  const restaurant = restaurantdata.find((el) => el.id === id);
-  if (!restaurant) {
-    res.status(404).json({
+exports.restaurantData = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const restaurant = await RestaurantModel.findById(id);
+    if (!restaurant) {
+      res.status(404).json({
+        status: "fail",
+        timeOfHit: req.requestTimeOfHit,
+        message: "Entered wrong resID",
+      });
+    }
+    res.status(200).json({
+      status: "success",
+      timeOfHit: req.requestTimeOfHit,
+      restaurant,
+    });
+  } catch (err) {
+    res.status(400).json({
       status: "fail",
       timeOfHit: req.requestTimeOfHit,
-      message: "Entered wrong resID",
+      message: err.message,
     });
   }
-  res.status(200).json({
-    statu: true,
-    timeOfHit: req.requestTimeOfHit,
-    message: "Post Updated succefully",
-  });
 };
-exports.deleteRestaurant = (req, res) => {
-  const id = req.params.id;
-  const restaurant = restaurantdata.find((el) => el.id === id);
-  if (!restaurant) {
-    res.status(404).json({
+exports.createResaturant = async (req, res) => {
+  try {
+    const newRestaurant = await RestaurantModel.create(req.body);
+
+    res.status(201).json({
+      status: true,
+      timeOfHit: req.requestTimeOfHit,
+      data: newRestaurant,
+    });
+  } catch (err) {
+    res.status(400).json({
       status: "fail",
       timeOfHit: req.requestTimeOfHit,
-      message: "Entered wrong resID",
+      message: err.message,
     });
   }
-  res.status(200).json({
-    statu: true,
-    timeOfHit: req.requestTimeOfHit,
-    message: "Post deleted succefully",
-  });
+};
+
+exports.updateRestaurant = async (req, res) => {
+  try {
+    const updateRestaurant = await RestaurantModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (!updateRestaurant) {
+      return res.status(404).json({
+        status: "fails",
+        message: "No Restaurant Found using this id",
+      });
+    }
+    res.status(201).json({
+      status: true,
+      timeOfHit: req.requestTimeOfHit,
+      data: updateRestaurant,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      timeOfHit: req.requestTimeOfHit,
+      message: err.message,
+    });
+  }
+};
+exports.deleteRestaurant = async (req, res) => {
+  try {
+    const deleteRestaurant = await RestaurantModel.findByIdAndDelete(
+      req.params.id
+    );
+    if (!deleteRestaurant) {
+      return res.status(404).json({
+        status: "fails",
+        message: "No Restaurant Found using this id",
+      });
+    }
+    res.status(204).json({
+      status: true,
+      timeOfHit: req.requestTimeOfHit,
+      msg: "data deleted ",
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      timeOfHit: req.requestTimeOfHit,
+      message: err.message,
+    });
+  }
 };

@@ -12,9 +12,11 @@ function App() {
     const fetchRestaurants = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:3000/Restaurant.json");
+        const response = await fetch("http://localhost:9000/api/v1/restaurant");
         const data = await response.json();
-        setRestaurantsData(data);
+
+        setRestaurantsData(data.data.restaurantdata);
+        console.log(restaurantsData);
       } catch (error) {
         console.error("Failed to fetch restaurants:", error);
       } finally {
@@ -66,6 +68,7 @@ function App() {
       <Outlet
         context={{
           restaurantsData,
+          setRestaurantsData,
           loading,
           setCartItems,
           addItem,

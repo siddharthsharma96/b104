@@ -39,9 +39,9 @@ const Carousel = () => {
       </div>
       <section className="carousel__slider">
         <ul className="carousel__slides" ref={slides}>
-          {restaurantsData.map((res) => {
+          {restaurantsData.map((res, i) => {
             return (
-              <li className="carousel__slide">
+              <li key={i} className="carousel__slide">
                 <RestaurantCard
                   restaurantsData={res}
                   show={false}

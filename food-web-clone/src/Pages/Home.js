@@ -19,6 +19,7 @@ const Home = () => {
             return (
               <RestaurantCard
                 show={true}
+                key={res._id}
                 restaurantsData={res}
               ></RestaurantCard>
             );

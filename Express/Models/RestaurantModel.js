@@ -16,10 +16,10 @@ const restaurantSchema = new mongoose.Schema(
     areaName: {
       type: String,
     },
-    costForTwo: [String],
-    cuisines: {
+    costForTwo: {
       type: String,
     },
+    cuisines: [String],
     avgRating: {
       type: String,
     },

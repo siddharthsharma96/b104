@@ -2,11 +2,12 @@ const express = require("express");
 const restaurantRoutes = require("./Routes/restaurantRoutes");
 const menuRoutes = require("./Routes/menuRoutes");
 const app = express();
+const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.config.env" });
 app.use(express.json());
-
+app.use(cors());
 mongoose
   .connect(process.env.DB_URL)
   .then(() => {

@@ -13,11 +13,15 @@ const Restaurants = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const found = restaurantsData.find((res) => res?.info.id === resId);
-        setRestaurant(found);
-        const response = await fetch("http://localhost:3000/menu.json");
+        // const found = restaurantsData.find((res) => res?._id === resId);
+        const ress = await fetch(
+          `http://localhost:9000/api/v1/restaurant/${resId}`
+        );
+        const found = await ress.json();
+        setRestaurant(found.restaurant);
+        const response = await fetch("http://localhost:9000/api/v1/menu");
         const data = await response.json();
-        setMenu(data);
+        setMenu(data.data.menuData);
       } catch (err) {
         console.log(err);
       }
@@ -27,10 +31,10 @@ const Restaurants = () => {
   return (
     <div className="restaurant">
       <div className="restaurant__breadcrumb">
-        <span>Home/Noida/{restaurant?.info?.name}</span>
+        <span>Home/Noida/{restaurant?.name}</span>
       </div>
       <div className="restaurant__container">
-        <RestaurantInfo restaurant={restaurant?.info} />
+        <RestaurantInfo restaurant={restaurant} />
         <div className="restaurant__menu">
           {menu.map((item, i) => (
             <RestaurantMenu menuData={item} key={i * 4} i={i}></RestaurantMenu>
